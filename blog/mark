@@ -1,0 +1,89 @@
+
+        --再次读取--
+读取数据 ----- 缓存redis (先在缓存读) \
+                        |             \
+                      无|              \(写到缓存)
+                        |               \
+                        DB（再数据库，硬盘）
+
+
+
+timeit -n 1000 -r 3 dumps(obj,0或1或2或3或4) 数大转化速度快
+
+
+http 操作  GET获取     POST创建    PUT更新     DELETE 删
+
+dev/shm  dd if=/dev/zero of=./out bs =1M count = 1024  dd在内存中写入文件
+sda 硬盘
+boot有内核文件
+/etc/rc.local    rc结尾配置文件
+ mnt (mount) 挂载设备
+ media 挂载 U盘
+ cat /proc/cpuinfo  | grep processor
+ last 查看最近登录人
+ usr  安装的程序
+ cd /var/log
+
+                                 一个网线接入局域网
+                                      |
+                                      |
+             -------------------------- --------------------------------------------
+             |               |                 |                   |                 |
+             |               |                 |                   |                 |
+     192.168.0.10       192.168.0.11        192.168.0.12       192.168.0.13        192.168.0.14
+     11111111.11111111.11111111.11110000  后边0000允许的         2**8   2**32      253.127.133.16/32
+
+ens33 物理网卡
+HWaddr 00:0c:29:a2:33:31  网卡地址
+Mask:255.255.255.0 子网掩码
+inet addr:10.0.123.147 内网IP
+Bcast:10.0.123.255  广播IP
+lo 回环
+
+源IP：端口------- 外网IP：端口 建立一条TCP连接
+888nginx进程ID
+netstat -natp/-naup
+ping -i 0.1 127.0.0.1 ping不属于UDP、TCP，到网卡就回来了
+
+lsof -i :8000看该端口被谁占用
+vimdiff a b
+dif a b
+
+
+
+        -------->密钥------>
+源文件                          密文  对称加密
+       <--------密钥<------
+
+        -------->加密key------>
+源文件                          密文  非对称加密
+       <--------解密key<------
+
+
+git
+git log  git commit --amend    git check 密码/回退    git commit -m 'message'   git add .
+pip install -i https://pypi.douban.com/sim
+gunicorn 多进程  进程数设置为内核数*2 + 1  keepalive =5 保持请求连接数，防止资源切换损耗
+服务器端口 1-65535   服务器给请求的入和出端口不同ple  gunicorn
+nginx 多进程   进程数设置为内核数 cpu_count()  （255**4（或2**32） * 65535 ）*2 一台服务器最大求情
+每次请求进来。服务器打开一个socket 给一个文件描述符，65535 减少，最后不再接受请求
+
+gunicorn     开启时要有个配置文件
+异步多进程HTTP服务器  它是个进程模型  主进程负责调度 每个进程嵌套协程 Greenlet Gevent Asynsio Minletd
+主进程开启sock(0.0.0.0:80) 开启选项端口复用 子进程fork 主进程的资源 ，每个子进程从主进程获取一个request
+
+ulimit unlimit
+ab -n 10000(请求) -c 1000（并发） http://127.0.0.1:8000/post/home
+
+压力测试 ab webben
+
+
+vim ~/.bashrc  设置别名
+rsync -cvrp --exclude={.git,.hg} --delete ./ root@host:/tmp/ 同步本地和服务器
+管理员 ---通过先访问--->堡垒机---在访问-->安全环境，外网无法访问（172.16.-.-, 192.168.-.-,10.-.-.-)都是内网IP
+
+free -h
+
+https://my.vultr.com?ref=6907148
+https://www.namaho.org
+shadosocks
